@@ -23,7 +23,7 @@ d3.json("samples.json").then(function(data) {
         ele.innerHTML = ele.innerHTML +
             '<option value="' + samples[i].id + '">' + samples[i].id + '</option>';
 
-        // bar chart
+       
         var samples_restructured = []; 
         // store restructured sample in a new array
         for (var j=0; j< samples[i].sample_values.length;j++) {   // j=0 to length of each "sample_values"
@@ -45,12 +45,12 @@ d3.json("samples.json").then(function(data) {
 
     console.log("restructured samples: ", samples_restructured_summary);
 
-    // bar chart initialization
+    // data preparation for initial Bar chart, Bubble chart and demographic info
     dataInitial = samples_restructured_summary[0]["940"]; 
     slicedInitial = dataInitial.slice(0,10);
+
     console.log("initial bar chart data: ", dataInitial);
     console.log("data of top ten: ", slicedInitial);
-
     console.log("otu_ids: ", slicedInitial.map(object => object.otu_ids));
    
     reversed_slicedInitial = slicedInitial.reverse();
@@ -68,7 +68,9 @@ d3.json("samples.json").then(function(data) {
         }];
 
         var layout1 ={
-            title: "'Bar' Chart",
+            
+            height: 500,
+            width: 400
 
         };
         Plotly.newPlot("bar", data1, layout1);
@@ -86,13 +88,22 @@ d3.json("samples.json").then(function(data) {
         }];
 
         var layout2 = {
-            title: 'Marker Size and Color',
+            
             showlegend: false,
             height: 600,
-            width: 1000
+            width: 1200
         };
 
         Plotly.newPlot("bubble", data2, layout2);
+
+        // initial demographic info
+        document.getElementById("sample-metadata").innerHTML = "id: " + metadata[0].id + "<br />" 
+                                                                + "ethnicity: " + metadata[0].ethnicity +"<br />"
+                                                                +"gender: " +metadata[0].gender+"<br />" 
+                                                                + "age: " + metadata[0].age+"<br />"  
+                                                                + "location: " + metadata[0].location + "<br />" 
+                                                                + "bbtype: " + metadata[0].bbtype + "<br />"
+                                                                + "wfreq: " + metadata[0].wfreq;
 
 
     }
@@ -117,6 +128,8 @@ d3.json("samples.json").then(function(data) {
                 slicedInitial = Object.values(samples_restructured_summary[i])[0].slice(0,10);
                 reversed_slicedInitial= slicedInitial.reverse();
                 console.log("reserved sliced initial: ", reversed_slicedInitial)
+
+                //update bar chart
                 data_x_1 = reversed_slicedInitial.map(object => object.sample_values);
                 data_y_1 = reversed_slicedInitial.map(object => object.otu_ids).map(String).map(array => "OTU" + " " + array.toString() );
                 
@@ -138,7 +151,7 @@ d3.json("samples.json").then(function(data) {
             else continue;
 
         }        
-
+        // update demographic info
         for (var i = 0; i < metadata.length; i++) {
             if (dataset == metadata[i].id) {
                 document.getElementById("sample-metadata").innerHTML = "id: " + metadata[i].id + "<br />" 
@@ -148,7 +161,7 @@ d3.json("samples.json").then(function(data) {
                                                                         + "location: " + metadata[i].location + "<br />" 
                                                                         + "bbtype: " + metadata[i].bbtype + "<br />"
                                                                         + "wfreq: " + metadata[i].wfreq;
-                // document.getElementById("sample-metadata").innerHTML = "ethnicity: " + metadata[i].ethnicity;
+                
 
             }
 
