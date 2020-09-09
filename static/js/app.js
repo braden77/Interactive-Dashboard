@@ -91,7 +91,12 @@ d3.json("samples.json").then(function(data) {
             
             showlegend: false,
             height: 600,
-            width: 1200
+            width: 1200,
+            xaxis: { 
+                title: {
+                    text: "OTU ID"
+                }
+            }
         };
 
         Plotly.newPlot("bubble", data2, layout2);
