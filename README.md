@@ -51,12 +51,7 @@
 
 ![hw](Images/hw03.JPG)
 
-6. Plot the weekly washing frequency of the individual.
-
-![hw](Images/hw02.png)
-
 6. Update all of the plots any time that a new sample is selected.
-
 
 ## Deployment
 
