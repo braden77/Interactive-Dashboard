@@ -1,7 +1,7 @@
 
 # Interactive Dashboard of Belly Button Biodiversity
 
-<img src = "images/dashboard.JPG" >
+<img src = "Images/dashboard.JPG" >
 
 ## About The Project
 
@@ -29,7 +29,7 @@
 
 * Use `otu_labels` as the hovertext for the chart.
 
-  ![bar Chart](Images/hw01.JPG)
+  [bar Chart](Images/hw01.JPG)
 
 3. Create a bubble chart that displays each sample.
 
@@ -49,11 +49,11 @@
 
 5. Display each key-value pair from the metadata JSON object somewhere on the page.
 
-![hw](Images/hw03.JPG)
+[hw](Images/hw03.JPG)
 
 6. Plot the weekly washing frequency of the individual.
 
-![hw](Images/hw02.png)
+[hw](Images/hw02.png)
 
 6. Update all of the plots any time that a new sample is selected.
 
