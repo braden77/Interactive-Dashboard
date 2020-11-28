@@ -56,6 +56,6 @@
 ## Deployment
 
 * Deploy this app to GitHub Pages
-* You can check this app through [Interactive Dashboard of Belly Button Biodiversity](https://braden77.github.io/Plotly-Challenge/)
+* You can check this app through [Interactive Dashboard of Belly Button Biodiversity](https://braden77.github.io/Interactive-Dashboard/)
 
 
